@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Il Mio Portfolio Fotografico</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      background-color: #0f0f11;
+      color: #f0f0f0;
+      text-align: center;
+    }
+    h1 {
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    p {
+      color: #aaa;
+      margin-bottom: 40px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .gallery img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>PORTFOLIO FOTOGRAFICO</h1>
+  <p>Benvenuti nella mia galleria fotografica</p>
+
+  <div class="gallery">
+    <!-- Quando caricherai le tue foto, sostituirai i nomi 'foto1.jpg', ecc. con i tuoi -->
+    <img src="foto1.jpg" alt="Fotografia 1">
+    <img src="foto2.jpg" alt="Fotografia 2">
+    <img src="foto3.jpg" alt="Fotografia 3">
+  </div>
+
+</body>
+</html>
