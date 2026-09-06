@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Il Mio Portfolio Fotografico</title>
+  <title>Ambra Guglielmino | Photography Portfolio</title>
   <style>
     body {
       font-family: system-ui, sans-serif;
@@ -15,12 +15,36 @@
     }
     h1 {
       font-weight: 300;
-      letter-spacing: 2px;
-      margin-bottom: 8px;
+      letter-spacing: 3px;
+      margin-bottom: 6px;
+      font-size: 2.2rem;
     }
-    p {
-      color: #aaa;
+    .subtitle {
+      color: #888;
+      font-size: 1.1rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+    .contacts {
       margin-bottom: 40px;
+      font-size: 0.95rem;
+      color: #ccc;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .contacts a {
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid #555;
+      padding-bottom: 2px;
+      transition: border-color 0.3s ease;
+    }
+    .contacts a:hover {
+      border-color: #fff;
     }
     .gallery {
       display: grid;
@@ -34,23 +58,55 @@
       height: 100%;
       object-fit: cover;
       border-radius: 8px;
+      cursor: pointer;
       transition: transform 0.3s ease;
     }
     .gallery img:hover {
       transform: scale(1.02);
     }
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 4px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    }
+    .lightbox .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
 
-  <h1>Portfolio Fotografico</h1>
-  <p>Una selezione dei miei scatti</p>
+  <h1>Photography Portfolio</h1>
+  <p class="subtitle">by Ambra Guglielmino</p>
+
+  <!-- Sezione Contatti: Modifica i tuoi dati qui sotto -->
+  <div class="contacts">
+    <span>✉️ <a href="ambra.guglielmino@icloud.com">ambra.guglielmino@icloud.com</a></span>
+    <span>📞 <a href="tel:+393917408270">+39 3917408270</a></span>
+    <span>📷 <a href="https://instagram.com/fotodiambra" target="_blank">@fotodiambra</a></span>
+  </div>
 
   <div class="gallery">
-    <!-- La foto 17 è in prima posizione come richiesto -->
     <img src="00017.jpg.jpeg" alt="Foto">
-
-    <!-- Tutte le altre foto (escluse la 8 e la 16) -->
     <img src="00001.jpg.jpeg" alt="Foto">
     <img src="00002.jpg.jpeg" alt="Foto">
     <img src="00003.jpg.jpeg" alt="Foto">
@@ -58,7 +114,6 @@
     <img src="00005.jpg.jpeg" alt="Foto">
     <img src="00006.jpg.jpeg" alt="Foto">
     <img src="00007.jpg.jpeg" alt="Foto">
-    <!-- 00008 esclusa -->
     <img src="00009.jpg.jpeg" alt="Foto">
     <img src="00010.jpg.jpeg" alt="Foto">
     <img src="00011.jpg.jpeg" alt="Foto">
@@ -66,8 +121,6 @@
     <img src="00013.jpg.jpeg" alt="Foto">
     <img src="00014.jpg.jpeg" alt="Foto">
     <img src="00015.jpg.jpeg" alt="Foto">
-    <!-- 00016 esclusa -->
-    <!-- 00017 usata all'inizio -->
     <img src="00018.jpg.jpeg" alt="Foto">
     <img src="00019.jpg.jpeg" alt="Foto">
     <img src="00020.jpg.jpeg" alt="Foto">
@@ -119,6 +172,27 @@
     <img src="00066.jpg.jpeg" alt="Foto">
     <img src="00067.jpg.jpeg" alt="Foto">
   </div>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="close">&times;</span>
+    <img id="lightbox-img" src="" alt="Foto ingrandita">
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    document.querySelectorAll('.gallery img').forEach(image => {
+      image.addEventListener('click', () => {
+        lightboxImg.src = image.src;
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.style.display = 'none';
+    }
+  </script>
 
 </body>
 </html>
